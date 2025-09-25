@@ -1,0 +1,11 @@
+{
+  "scripts": {
+    "test": "cypress run --reporter mochawesome"
+  },
+  "devDependencies": {
+    "cypress": "^13.0.0",
+    "mochawesome": "^7.1.4",
+    "mochawesome-merge": "^5.0.0",
+    "mochawesome-report-generator": "^6.3.0"
+  }
+}

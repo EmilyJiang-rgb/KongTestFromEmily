@@ -1,0 +1,5 @@
+{
+  "name": "fixture-service",
+  "url": "http://fixture.com",
+  "route": "/fixture"
+}
