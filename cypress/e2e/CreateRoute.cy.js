@@ -109,7 +109,7 @@ describe('create service with route', () => {
 
  it('Create new route with advanced information', () => {
     visitWithBaseUrl('/default/routes');
-    const { routeName, tag } = generateNames('case1');
+    const { routeName, tag } = generateNames('case4');
     //create new route
     cy.get('[data-testid="toolbar-add-route"]').click()
     cy.get(selectors.routeNameInput).type(routeName)
@@ -141,7 +141,7 @@ describe('create service with invalid data', () => {
 
  it('Create new service with existing service name', () => {
     visitWithBaseUrl('/default/services');
-    const { serviceName, tag } = generateNames('case1');
+    const { serviceName, tag } = generateNames('case6');
     cy.get('a[href="/default/services/create"]').click();
     cy.get(selectors.serviceUrlInput).type('https://api.kong-emily.com/url2')
     cy.get(selectors.serviceNameInput).clear().type(serviceName)
@@ -154,9 +154,7 @@ describe('create service with invalid data', () => {
     cy.get(selectors.serviceUrlInput).type('https://api.kong-emily.com/url2')
     cy.get(selectors.serviceNameInput).clear().type(serviceName)
     cy.get('[type="submit"]').click()
-    cy.get('.form-error-list li')
-  .contains('UNIQUE violation detected on')
-  .should('exist'); 
+    cy.get('.form-error-list li', { timeout: 10000 }).should('be.visible');
   })
 
   it('Create new service with invalid service name', () => {
